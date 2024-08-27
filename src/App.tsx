@@ -1,7 +1,12 @@
 import "./App.css";
+import CountdownTimer from "./Components/CountdownTimer";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <CountdownTimer />
+    </>
+  );
 }
 
 export default App;
