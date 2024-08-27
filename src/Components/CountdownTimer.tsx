@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 
 function CountdownTimer() {
-  const initialNumber = 20;
+  const initialNumber = 60;
   const [timeLeft, setTimeLeft] = useState<number>(initialNumber);
   const [isActive, setIsActive] = useState<boolean>(false);
 
-  const timerRef = useRef(null); // ??
+  const timerRef = useRef<number>(); // ??
 
   const handleStart = () => {
     setIsActive(true);
@@ -30,7 +30,7 @@ function CountdownTimer() {
             // set is active to false
             setIsActive(false);
             // clear interval (stop timer)
-            clearInterval(timerInterval);
+            clearInterval(timerRef.current);
             return 0;
             // else count down by 1
           } else {
@@ -40,21 +40,26 @@ function CountdownTimer() {
         // else (if timer is not active)
       } else {
         // stop timer
-        clearInterval(timerInterval);
+        clearInterval(timerRef.current);
       }
     }, 1000);
 
-    return () => clearInterval(timerInterval); //cleanup
-  });
+    timerRef.current = timerInterval;
+
+    return () => clearInterval(timerRef.current); //cleanup
+  }, [isActive]);
 
   return (
-    <div>
+    <section>
       <h1>Countdown Timer</h1>
-      <h2>{timeLeft} seconds left</h2>
-      <button onClick={handleStart}>Start</button>
-      <button onClick={handlePause}>Pause</button>
-      <button onClick={handleReset}>Reset</button>
-    </div>
+      <h2>{timeLeft === 0 ? "BOOM!" : timeLeft} </h2>
+      <h3>{timeLeft === 0 ? "time's up." : "seconds left..."}</h3>
+      <div>
+        <button onClick={handleStart}>Start</button>
+        <button onClick={handlePause}>Pause</button>
+        <button onClick={handleReset}>Reset</button>
+      </div>
+    </section>
   );
 }
 
