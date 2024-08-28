@@ -2,6 +2,14 @@
   border: solid var(--color-primary);
   border-width: 0 1px 0 1px;
   box-shadow: var(--color-primary) 0 0 10px;
+  filter: grayscale(0) brightness(100%);
+  transition: all 0.3s;
+
+  &.inactive {
+    filter: grayscale(1) brightness(140%);
+
+    transition: all 0.3s;
+  }
 
   h1 {
     font-size: 3rem;
@@ -14,6 +22,7 @@
 
   h2 {
     font-size: 10rem;
+    padding: 0 1rem;
   }
 
   h1,

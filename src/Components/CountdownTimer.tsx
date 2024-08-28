@@ -88,7 +88,7 @@ function CountdownTimer() {
   }, [isActive]);
 
   return (
-    <section className="timer">
+    <section className={`timer ${!isActive && timeLeft !== 0 ? "inactive" : "null"}`}>
       <h1>Countdown Timer</h1>
       <h2>{timeLeft === 0 ? "BOOM" : timeLeft} </h2>
       <h3>
