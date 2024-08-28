@@ -1,43 +1,98 @@
-h1 {
-  font-size: 3rem;
-  text-transform: uppercase;
-  margin-bottom: 2rem;
-}
+.timer {
+  border: solid var(--color-primary);
+  border-width: 0 1px 0 1px;
+  box-shadow: var(--color-primary) 0 0 10px;
 
-h2 {
-  font-size: 10rem;
-}
+  h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    border: solid var(--color-primary);
+    border-width: 1px 0 1px 0;
+    padding: 0.5rem 1rem;
+  }
 
-h1,
-h2,
-h3 {
-  text-shadow: var(--color-primary) 1px 0 10px;
-  letter-spacing: 0.5rem;
-}
+  h2 {
+    font-size: 10rem;
+  }
 
-div {
-  padding-top: 6rem;
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-  justify-content: center;
-}
+  h1,
+  h2,
+  h3 {
+    text-shadow: var(--color-primary) 0 0 10px;
+    letter-spacing: 0.5rem;
+  }
 
-button {
-  font-size: 1rem;
-  font-weight: bold;
-  color: var(--color-black);
-  background-color: var(--color-primary);
-  border: 1px solid transparent;
-  padding: 0.5rem 2rem;
-  cursor: pointer;
-  box-shadow: var(--color-primary) 1px 0 10px;
-  transition: all 0.3s;
+  .buttons {
+    padding-top: 6rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
 
-  &:hover {
-    background-color: var(--color-black);
-    border: 1px solid var(--color-primary);
-    color: var(--color-primary);
-    transform: scale(1.1);
+    button {
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--color-black);
+      background-color: var(--color-primary);
+      border: 1px solid transparent;
+      padding: 0.5rem 2rem;
+      cursor: pointer;
+      box-shadow: var(--color-primary) 0 0 10px;
+      transition: all 0.3s;
+
+      &:focus {
+        outline: none !important;
+        box-shadow: var(--color-primary) 0 0 20px;
+      }
+
+      &:hover {
+        background-color: var(--color-black);
+        border: 1px solid var(--color-primary);
+        color: var(--color-primary);
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .user-input {
+    width: 100%;
+    margin-top: 3rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    label {
+      flex: 1;
+      text-align: left;
+      border: solid var(--color-primary);
+      border-width: 1px 0 1px 0;
+      padding: 0.5rem 1rem;
+      text-shadow: var(--color-primary) 0 0 10px;
+    }
+
+    input[type="number"] {
+      font-weight: bold;
+      font-size: 1rem;
+      -moz-appearance: textfield;
+      background-color: var(--color-black);
+      border: solid var(--color-primary);
+      border-width: 1px 0 1px 1px;
+      color: var(--color-primary);
+      padding: 0.5rem 1rem;
+      text-shadow: var(--color-primary) 0 0 10px;
+
+      &:focus {
+        outline: none !important;
+        box-shadow: var(--color-primary) 0 0 10px;
+      }
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
   }
 }
