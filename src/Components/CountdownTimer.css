@@ -84,6 +84,7 @@
     input[type="number"] {
       font-weight: bold;
       font-size: 1rem;
+      appearance: textfield;
       -moz-appearance: textfield;
       background-color: var(--color-black);
       border: solid var(--color-primary);
