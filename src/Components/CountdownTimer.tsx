@@ -40,17 +40,17 @@ function CountdownTimer() {
     let userNumber = Number(event.target.value);
 
     // (don't have to check for NaN since input only takes numbers)
-    // (if NaN, it automatically turns into 0)
 
     // input can't be less than 1
     if (userNumber < 1) {
-      console.log("Number needs to be bigger than 0");
       // set time left to the default time
       setTimeLeft(defaultTime);
       // update starttime ref
       startTimeRef.current = defaultTime;
       // valid user input
     } else {
+      // to make sure userNumber is a whole number
+      userNumber = Math.round(userNumber);
       // set time left to usernumber
       setTimeLeft(userNumber);
       // update starttime ref
@@ -82,13 +82,11 @@ function CountdownTimer() {
     }
     // set the timer to timerRef
     timerRef.current = timerInterval;
-    // cleanup
-    return () => clearInterval(timerRef.current);
     // only "listens" to isActive
   }, [isActive]);
 
   return (
-    <section className={`timer ${!isActive && timeLeft !== 0 ? "inactive" : "null"}`}>
+    <section className={`timer ${!isActive && timeLeft !== 0 ? "inactive" : null}`}>
       <h1>Countdown Timer</h1>
       <h2>{timeLeft === 0 ? "BOOM" : timeLeft} </h2>
       <h3>
