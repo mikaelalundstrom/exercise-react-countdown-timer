@@ -59,11 +59,10 @@ function CountdownTimer() {
   };
 
   useEffect(() => {
-    let timerInterval;
     // do if is active
     if (isActive) {
-      // set an interval of 1s
-      timerInterval = setInterval(() => {
+      // set an interval of 1s to timerRef
+      timerRef.current = setInterval(() => {
         // update time left
         setTimeLeft((prevTime) => {
           // if time left is 0
@@ -80,8 +79,6 @@ function CountdownTimer() {
         });
       }, 1000);
     }
-    // set the timer to timerRef
-    timerRef.current = timerInterval;
     // only "listens" to isActive
   }, [isActive]);
 
